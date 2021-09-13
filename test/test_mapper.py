@@ -15,8 +15,8 @@ class MapperTestClass(unittest.TestCase):
             ['MO', (1080, 1320)],
             ['TU', (600, 720)]
         ]
-        self.assertEqual(name, expected_name)
-        self.assertEqual(schedule, expected_schedule)
+        self.assertEqual(expected_name, name)
+        self.assertEqual(expected_schedule, schedule)
 
     def test_should_throw_exception_when_invalid_text_without_equal(self):
         edge_invalid_text = 'invalid'
@@ -45,7 +45,7 @@ class MapperTestClass(unittest.TestCase):
 
     def test_should_throw_exception_when_worked_minutes_are_negative(self):
         edge_invalid_schedule = 'RENE=MO12:00-10:00'
-        with self.assertRaises(ValueError, msg='Incorrect schedule values. Final working hour is greater than initial.'):
+        with self.assertRaises(ValueError, msg='Incorrect schedule values. Final hour is greater than initial.'):
             unwrap_info(edge_invalid_schedule)
 
 

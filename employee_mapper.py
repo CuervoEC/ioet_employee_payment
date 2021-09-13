@@ -2,10 +2,10 @@ import re
 from ndays import Day
 
 
-def _validate_schedule_format(schedule):
+def _validate_schedule_format(name, schedule):
     r = re.compile('[A-Z]{2}\d{2}:\d{2}-\d{2}:\d{2}')
     if r.match(schedule) is None:
-        raise ValueError('Invalid schedule format.')
+        raise ValueError(f'Invalid schedule format for {name}')
 
 
 def _validate_day(day):
@@ -35,8 +35,9 @@ def unwrap_info(text):
     day_hours = []
     hours = []
     for worked_schedule in schedule.split(','):
-        _validate_schedule_format(worked_schedule)
+        _validate_schedule_format(name, worked_schedule)
         day = worked_schedule[:2]
+        # TODO: Change day to use enum from 'ndays.py'.
         _validate_day(day)
         hour = worked_schedule[2:].split('-')
         for i in range(len(hour)):
