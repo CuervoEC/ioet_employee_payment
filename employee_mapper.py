@@ -51,6 +51,3 @@ def unwrap_info(text):
         day_hours.append([day, tuple(hour)])
 
     return name, day_hours
-
-
-print(unwrap_info('RENE=MO10:00-12:00,MO18:00-22:00,TU10:00-12:00'))
