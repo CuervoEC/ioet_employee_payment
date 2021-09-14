@@ -17,6 +17,7 @@ weekend_dict = {
 
 # Need improvement with dictionary over dictionary reference instead of list
 def _cases_comparator(start: int, finish: int, payment_dict: dict) -> float:
+    """Compares all possible schedules and return the calculated salary for that input"""
     payment_value = [key for key in payment_dict.keys()]
     hour_ranges = [value for value in payment_dict.values()]
     if start > hour_ranges[0][0] and finish <= hour_ranges[0][1]:
@@ -43,6 +44,7 @@ def _cases_comparator(start: int, finish: int, payment_dict: dict) -> float:
 
 
 def calculate_salary(schedule) -> float:
+    """Returns the salary of an input employee"""
     # Salary initialization
     salary = 0
     for value in schedule:
@@ -51,7 +53,6 @@ def calculate_salary(schedule) -> float:
         worked_schedule = value[1]
         start_time = worked_schedule[0]
         finish_time = worked_schedule[1]
-
         if code_day in weekdays:
             salary += _cases_comparator(start_time, finish_time, weekdays_dict)
         elif code_day in weekend_days:

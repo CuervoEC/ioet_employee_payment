@@ -3,13 +3,14 @@ import platform
 import os
 
 
-def screen_print(init=True) -> None:
+def screen_print(loader=True) -> None:
+    """Print title screen with a simple toggle loader"""
     intro_text = '- IOET EMPLOYEE PAYMENT CALCULATOR -'
     center_values = '*' * ((80 - len(intro_text)) // 2)
     print('*' * 80)
     print(center_values + intro_text + center_values)
     print('*' * 80)
-    if not init:
+    if not loader:
         pass
     else:
         print('Initializing')
@@ -21,6 +22,7 @@ def screen_print(init=True) -> None:
 
 
 def clear_os_type() -> None:
+    """Checks the current operating system for executing the right clear command to console"""
     os_type = platform.system()
     if os_type == 'Windows':
         os.system('cls')
