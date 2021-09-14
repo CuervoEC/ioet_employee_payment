@@ -1,11 +1,11 @@
-from loader import loader
+from loader import load_file
 import unittest
 
 
-class CalculatorTestClass(unittest.TestCase):
+class LoaderTestClass(unittest.TestCase):
 
-    def test_when_worked_weekday_schedule(self):
-        self.assertTrue(type(loader('test_data.txt')) == list)
+    def test_should_return_data_checking_type(self):
+        self.assertTrue(type(load_file('test_data.txt')) == list)
 
 
 if __name__ == '__main__':
