@@ -1,5 +1,5 @@
 import unittest
-from salary_calculator import calculate_salary
+from calculator.salary_calculator import calculate_salary
 
 
 class CalculatorTestClass(unittest.TestCase):

@@ -1,4 +1,4 @@
-from ndays import Day
+from calculator import Day
 
 # DATA AND GAME RULES
 weekdays = [day.value for day in Day][:5]

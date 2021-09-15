@@ -1,5 +1,5 @@
 import re
-from ndays import Day
+from calculator.ndays import Day
 
 
 def _validate_schedule_format(name, schedule):

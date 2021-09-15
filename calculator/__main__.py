@@ -1,7 +1,7 @@
-import employee_mapper
-import loader
-import salary_calculator
-import menu
+from calculator import employee_mapper
+from calculator import loader
+from calculator import salary_calculator
+from calculator import menu
 import os
 from time import sleep
 

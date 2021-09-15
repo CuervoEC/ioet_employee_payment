@@ -1,4 +1,4 @@
-from loader import load_file
+from calculator.loader import load_file
 import unittest
 
 

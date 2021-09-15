@@ -1,12 +1,12 @@
 import unittest
-from main import show_result
+from calculator.__main__ import show_result
 from unittest.mock import patch
 
 
-# patch before test definition
-@patch('salary_calculator.calculate_salary')
-@patch('employee_mapper.unwrap_info')
-@patch('loader.load_file')
+# patch before tests definition
+@patch('calculator.salary_calculator.calculate_salary')
+@patch('calculator.employee_mapper.unwrap_info')
+@patch('calculator.loader.load_file')
 class TestMainClass(unittest.TestCase):
 
     def test_should_show_result(self, mock_load_file, mock_unwrap_info, mock_calculate_salary):

@@ -1,7 +1,5 @@
-import os
-import platform
 import unittest
-import menu
+from calculator import menu
 from unittest.mock import patch
 
 
