@@ -3,13 +3,14 @@ from calculator.ndays import Day
 
 
 def _validate_schedule_format(name, schedule):
+    """Validate specific schedule format"""
     r = re.compile('[A-Z]{2}\d{2}:\d{2}-\d{2}:\d{2}')
     if r.match(schedule) is None:
         raise ValueError(f'Invalid schedule format for {name}')
 
 
 def _validate_day(day):
-    valid_days = [day.value for day in Day]
+    valid_days = [day.name for day in Day]
     if day not in valid_days:
         raise ValueError('Invalid day.')
 
@@ -33,11 +34,12 @@ def unwrap_info(text):
     _validate_init_name_schedule(name, schedule)
 
     day_hours = []
-    hours = []
+    day = ''
     for worked_schedule in schedule.split(','):
         _validate_schedule_format(name, worked_schedule)
-        day = worked_schedule[:2]
-        # TODO: Change day to use enum from 'ndays.py'.
+        for d in Day:
+            if d.value == worked_schedule[:2]:
+                day = d.name
         _validate_day(day)
         hour = worked_schedule[2:].split('-')
         for i in range(len(hour)):

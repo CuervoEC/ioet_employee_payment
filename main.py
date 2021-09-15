@@ -1,6 +1,6 @@
-from calculator import employee_mapper
+from calculator import mapper
 from calculator import loader
-from calculator import salary_calculator
+from calculator import calc
 from calculator import menu
 import os
 from time import sleep
@@ -10,12 +10,12 @@ def show_result(f_name):
     data_list = loader.load_file(f_name)
     for i, data in enumerate(data_list):
         try:
-            employee_name, schedule = employee_mapper.unwrap_info(data)
+            employee_name, schedule = mapper.unwrap_info(data)
         except ValueError:
             print(f'Error in dataset {i + 1}.')
             pass
         else:
-            payment = salary_calculator.calculate_salary(schedule)
+            payment = calc.calculate_salary(schedule)
             formatted_payment = f"${payment:,.2f}"
             print(f'The amount to pay to {employee_name} is: {formatted_payment}')
 

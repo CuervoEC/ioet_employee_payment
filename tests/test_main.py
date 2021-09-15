@@ -4,8 +4,8 @@ from unittest.mock import patch
 
 
 # patch before tests definition
-@patch('calculator.salary_calculator.calculate_salary')
-@patch('calculator.employee_mapper.unwrap_info')
+@patch('calculator.calc.calculate_salary')
+@patch('calculator.mapper.unwrap_info')
 @patch('calculator.loader.load_file')
 class TestMainClass(unittest.TestCase):
 

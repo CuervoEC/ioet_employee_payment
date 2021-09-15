@@ -1,21 +1,20 @@
 from calculator import Day
 
 # DATA AND GAME RULES
-weekdays = [day.value for day in Day][:5]
-weekend_days = [day.value for day in Day][5:]
-weekdays_dict = {
-    25: [0, 540],       # 00:01 - 09:00
-    15: [540, 1080],    # 09:01 - 18:00
-    20: [1080, 1440]    # 18:01 - 00:00
+weekdays = [day.name for day in Day][:5]
+weekend_days = [day.name for day in Day][5:]
+weekdays_dict = {       # hour_ranges ref:
+    25: [0, 540],       # 00:01 - 09:00     [0][0] - [0][1]
+    15: [540, 1080],    # 09:01 - 18:00     [1][0] - [1][1]
+    20: [1080, 1440]    # 18:01 - 00:00     [2][0] - [2][1]
 }
 weekend_dict = {
-    30: [0, 540],  # 00:01 - 09:00 { init_time: 0, finish_time: 540  }
-    20: [540, 1080],    # 09:01 - 18:00
-    25: [1080, 1440]    # 18:01 - 00:00
+    30: [0, 540],       # 00:01 - 09:00     [0][0] - [0][1]
+    20: [540, 1080],    # 09:01 - 18:00     [1][0] - [1][1]
+    25: [1080, 1440]    # 18:01 - 00:00     [2][0] - [2][1]
 }
 
 
-# Need improvement with dictionary over dictionary reference instead of list
 def _cases_comparator(start: int, finish: int, payment_dict: dict) -> float:
     """Compares all possible schedules and return the calculated salary for that input"""
     payment_value = [key for key in payment_dict.keys()]
@@ -49,13 +48,13 @@ def calculate_salary(schedule) -> float:
     salary = 0
     for value in schedule:
         # Unpacking
-        code_day = value[0]
+        day = value[0]
         worked_schedule = value[1]
         start_time = worked_schedule[0]
         finish_time = worked_schedule[1]
-        if code_day in weekdays:
+        if day in weekdays:
             salary += _cases_comparator(start_time, finish_time, weekdays_dict)
-        elif code_day in weekend_days:
+        elif day in weekend_days:
             salary += _cases_comparator(start_time, finish_time, weekend_dict)
 
     return round(salary, 2)

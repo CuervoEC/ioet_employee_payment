@@ -1,5 +1,5 @@
 import unittest
-from calculator.employee_mapper import unwrap_info
+from calculator.mapper import unwrap_info
 
 
 class MapperTestClass(unittest.TestCase):
@@ -11,9 +11,9 @@ class MapperTestClass(unittest.TestCase):
         expected_name = 'RENE'
         # This data structure needs refactoring, could be more simple
         expected_schedule = [
-            ['MO', (600, 720)],
-            ['MO', (1080, 1320)],
-            ['TU', (600, 720)]
+            ['MONDAY', (600, 720)],
+            ['MONDAY', (1080, 1320)],
+            ['TUESDAY', (600, 720)]
         ]
         self.assertEqual(expected_name, name)
         self.assertEqual(expected_schedule, schedule)

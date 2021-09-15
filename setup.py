@@ -7,5 +7,5 @@ setup(
     author='Francisco Navarro',
     author_email='f.navarro.ec@outlook.com',
     url='https://github.com/CuervoEC/ioet_employee_payment',
-    packages=['calculator']
+    packages=['main, calculator']
 )
