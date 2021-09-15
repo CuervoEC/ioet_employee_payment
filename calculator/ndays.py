@@ -9,5 +9,3 @@ class Day(Enum):
     FRIDAY = 'FR'
     SATURDAY = 'SA'
     SUNDAY = 'SU'
-
-
