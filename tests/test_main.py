@@ -1,5 +1,5 @@
 import unittest
-from calculator.__main__ import show_result
+from main import show_result
 from unittest.mock import patch
 
 
