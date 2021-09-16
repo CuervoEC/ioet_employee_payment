@@ -5,7 +5,7 @@ import os
 
 def screen_print(loader=True) -> None:
     """Print title screen with a simple toggle loader"""
-    intro_text = '- IOET EMPLOYEE PAYMENT CALCULATOR -'
+    intro_text = '- ACME EMPLOYEE PAYMENT CALCULATOR -'
     center_values = '*' * ((80 - len(intro_text)) // 2)
     print('*' * 80)
     print(center_values + intro_text + center_values)

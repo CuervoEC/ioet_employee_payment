@@ -1,5 +1,5 @@
 from calculator import mapper
-from calculator import loader
+from calculator import reader
 from calculator import calc
 from calculator import menu
 import os
@@ -7,7 +7,7 @@ from time import sleep
 
 
 def show_result(f_name):
-    data_list = loader.load_file(f_name)
+    data_list = reader.read_file(f_name)
     for i, data in enumerate(data_list):
         try:
             employee_name, schedule = mapper.unwrap_info(data)

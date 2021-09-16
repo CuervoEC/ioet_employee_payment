@@ -6,7 +6,7 @@ from unittest.mock import patch
 # patch before tests definition
 @patch('calculator.calc.calculate_salary')
 @patch('calculator.mapper.unwrap_info')
-@patch('calculator.loader.load_file')
+@patch('calculator.reader.read_file')
 class TestMainClass(unittest.TestCase):
 
     def test_should_show_result(self, mock_load_file, mock_unwrap_info, mock_calculate_salary):
