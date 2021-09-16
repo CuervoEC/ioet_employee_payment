@@ -34,13 +34,16 @@ if __name__ == '__main__':
         elif len(user_input) == 0:
             file_name = input('Put the directory and file name: ')
             if os.path.isdir(file_name) or os.path.isfile(file_name):
-                print("\nLoading...")
-                sleep(2)
-                show_result(file_name)
-                user_input = input('Do you need to analyze another file? Press "enter" to continue or "q" to exit: ')
-                if user_input == 'q':
-                    menu.clear_os_type()
-                    break
+                if file_name.endswith('.txt'):
+                    print("\nLoading...")
+                    sleep(2)
+                    show_result(file_name)
+                    user_input = input('Do you need to analyze another file? Press "enter" to continue or "q" to exit: ')
+                    if user_input == 'q':
+                        menu.clear_os_type()
+                        break
+                else:
+                    print('Wrong file extension')
             else:
                 print('No such file or directory')
                 sleep(1)
